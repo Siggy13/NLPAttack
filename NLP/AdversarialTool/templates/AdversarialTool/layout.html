@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'AdversarialTool/styles.css' %}">
+    <head>
+        <title>Adversarial Tool</title>
+    </head>
+    <body>
+        <header>
+            <div class="grid-container-element">
+            <div class="grid-child-element input">
+            <h1>Adversarial Tool</h1>
+            </div> 
+            <div class="grid-child-element output">
+            <a href="/AdversarialTool/about">About the Project</a>
+            <a href="/AdversarialTool/aboutAttacks">About the Attacks</a>
+            <a href="/AdversarialTool/FAQ">FAQs</a>
+            <a href="https://github.com/yvonnezino/NLP-Adversarial">Github</a>
+            <a href="/AdversarialTool/examples">Examples</a>
+        </div>
+    </div>
+        </header>
+
+        {% block body %}
+        {% endblock %}
+    </body>
+
+</html>

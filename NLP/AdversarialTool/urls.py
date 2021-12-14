@@ -1,0 +1,14 @@
+from django.urls import path
+from . import views
+
+app_name = "AdversarialTool"
+urlpatterns=[
+    path("",views.index, name="index"),
+    path("emotions",views.emotions, name="emotions"),
+    path("FAQ",views.FAQ, name="FAQ"),
+    path("examples",views.examples, name="examples"),
+    path("github",views.FAQ, name="FAQ"),
+    path("about",views.about, name="about"),
+    path("aboutAttacks",views.aboutAttacks, name="aboutAttacks")
+    
+]
