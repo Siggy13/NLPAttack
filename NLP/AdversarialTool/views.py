@@ -22,9 +22,7 @@ ATTACK_CHOICES= [
 class NewForm(forms.Form):
     inputText = forms.CharField(widget=forms.Textarea, label='')
     chosenAttack= forms.CharField(label=mark_safe('<br />'), widget=forms.Select(choices=ATTACK_CHOICES))
-    widgets = {
-        'text': Textarea(attrs={'spellcheck': 'true', 'rows': 5})
-        }
+
 
 
 def index(request):
@@ -97,7 +95,11 @@ def about(request):
 def aboutAttacks(request):
     return render(request, "AdversarialTool/aboutAttacks.html")
 
+def login(request):
+    return render(request, "AdversarialTool/login.html")
 
+def logout(request):
+    pass
 
 def AttackClassification(attackDict, label):
     if attackDict["success"] and label==1:

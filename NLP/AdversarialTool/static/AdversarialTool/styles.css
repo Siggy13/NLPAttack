@@ -98,6 +98,29 @@ input[type="text" i] {
 	border-radius: 10px;
 	outline:none;
 }
+input[type="password" i] {
+	padding: 1em;
+	width: 20vw;
+	height: 1vw;
+	background:#ccc; 
+	color:#666666;
+	border:2px solid transparent;
+	border-radius: 10px;
+	outline:none;
+}
+
+#username{
+	padding: 1em;
+	margin: 1em;
+	width: 20vw;
+	height: 1vw;
+	background:#ccc; 
+	color:#666666;
+	border:2px solid transparent;
+	border-radius: 10px;
+	outline:none;
+}
+
 
 #id_chosenAttack{
     padding:5px 15px; 
@@ -118,3 +141,16 @@ textarea{
     -webkit-border-radius: 5px;
     border-radius: 5px; 
 }
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	padding: 2em;
+	background: 
+		linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+		linear-gradient(#4e4376, #2b5876);
+	color: white;
+	text-align: center;
+  }
