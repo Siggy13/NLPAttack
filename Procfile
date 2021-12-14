@@ -1,0 +1,1 @@
+web: gunicorn /NLP/AdversarialTool/NLP/wsgi.py
