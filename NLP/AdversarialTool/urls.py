@@ -9,6 +9,9 @@ urlpatterns=[
     path("examples",views.examples, name="examples"),
     path("github",views.FAQ, name="FAQ"),
     path("about",views.about, name="about"),
-    path("aboutAttacks",views.aboutAttacks, name="aboutAttacks")
+    path("aboutAttacks",views.aboutAttacks, name="aboutAttacks"),
+    path("login", views.login, name="login"),
+    path("logout", views.logout, name="logout")
+
     
 ]

@@ -2,17 +2,12 @@
 {% block body %}
 <div style="height: 200px;"></div>
 <div class="grid-container-element">
-    <head>
-        {% include 'django_quill/media.html' %}
-    </head>
     
     <div class="grid-child-element input">
     <h2>Enter text to see how it will be classified: </h2>
         <form action="{% url 'AdversarialTool:emotions' %}" method="post">
             {% csrf_token %}
-            {{form.content}}
-            {{form.chosenAttack}}
-
+            {{form}}
             <br>
             <input type="submit" value="Check Classification">
         </form>

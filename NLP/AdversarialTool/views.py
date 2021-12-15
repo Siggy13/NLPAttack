@@ -7,7 +7,6 @@ from AdversarialTool.sentiment_analysis import predictSentiment , predictStress,
 from AdversarialTool.attackFineTunedModel import getAttackOutput
 from AdversarialTool.attackEmotionsModel import getEmotionAttackOutput
 from django.utils.safestring import mark_safe
-from django_quill.forms import QuillFormField
 from django.forms import Textarea
 
 
@@ -20,17 +19,10 @@ ATTACK_CHOICES= [
     ('FD', 'FD'),
     ]
 
-class QuillFieldForm(forms.Form):
-    required_css_class="required-field"
-    content = QuillFormField()
-    chosenAttack= forms.CharField(label=mark_safe('<br />'), widget=forms.Select(choices=ATTACK_CHOICES))
-
 class NewForm(forms.Form):
     inputText = forms.CharField(widget=forms.Textarea, label='')
     chosenAttack= forms.CharField(label=mark_safe('<br />'), widget=forms.Select(choices=ATTACK_CHOICES))
-    widgets = {
-        'text': Textarea(attrs={'spellcheck': 'true', 'rows': 5})
-        }
+
 
 
 def index(request):
@@ -68,10 +60,7 @@ def index(request):
 
 def emotions(request):
     if request.method == "POST":
-        givenText = request.POST.get("content").getContents()
-        print("INPUT TEXT SEEN HERE: "+ givenText)
-        print(type(givenText))
- 
+        givenText = request.POST.get("inputText")
         attackType= request.POST.get("chosenAttack")
 
         textInputted=True
@@ -87,15 +76,15 @@ def emotions(request):
 
         attackOutputClasification=predictEmotions(attackOutputResults)[0]
         return render(request, "AdversarialTool/emotions.html", {
-        "form":QuillFieldForm(request.POST), "givenText":givenText, "startingClassification":classifier[0], "textInputted":textInputted, "attackSucess":attackSucess
+        "form":NewForm(request.POST), "givenText":givenText, "startingClassification":classifier[0], "textInputted":textInputted, "attackSucess":attackSucess
         ,"OutputResults":attackOutputResults, "attackedClassification":attackOutputClasification
     })
     else:
         return render(request, "AdversarialTool/emotions.html", {
-            "form":QuillFieldForm(), "textInputted":False, "givenText":""
+            "form":NewForm(), "textInputted":False, "givenText":""
         })
 def FAQ(request):
-    return render(request, "AdversarialTool/FAQ.html", {'form': QuillFieldForm()})
+    return render(request, "AdversarialTool/FAQ.html")
 
 def examples(request):
     return render(request, "AdversarialTool/examples.html")
@@ -106,7 +95,11 @@ def about(request):
 def aboutAttacks(request):
     return render(request, "AdversarialTool/aboutAttacks.html")
 
+def login(request):
+    return render(request, "AdversarialTool/login.html")
 
+def logout(request):
+    pass
 
 def AttackClassification(attackDict, label):
     if attackDict["success"] and label==1:
