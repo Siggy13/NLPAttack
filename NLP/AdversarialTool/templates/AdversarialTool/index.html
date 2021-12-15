@@ -8,7 +8,7 @@
 <div class="grid-container-element">
 
     <div class="grid-child-element input">
-    <h2>Enter text to see how it will be classified: </h2>
+    <h2>Enter text to see if it will be classified as stressed: </h2>
         <form action="{% url 'AdversarialTool:index' %}" method="post">
             {% csrf_token %}
             {{form}}

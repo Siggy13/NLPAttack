@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import numpy as np
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
 from django.conf import settings
 from AdversarialTool.sentiment_analysis import predictSentiment , predictStress, predictEmotions
@@ -8,6 +8,9 @@ from AdversarialTool.attackFineTunedModel import getAttackOutput
 from AdversarialTool.attackEmotionsModel import getEmotionAttackOutput
 from django.utils.safestring import mark_safe
 from django.forms import Textarea
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
 
 ATTACK_CHOICES= [
@@ -95,11 +98,34 @@ def about(request):
 def aboutAttacks(request):
     return render(request, "AdversarialTool/aboutAttacks.html")
 
-def login(request):
+def login_view(request):
+    if request.method == "POST":
+        username=request.POST["username"]
+        password=request.POST["password"]
+        if request.POST.get("Login"):
+            user=authenticate(request, username=username,password=password)
+            if user is not None:
+                login(request, user)
+                return render(request, "AdversarialTool/index.html", {
+                "form":NewForm(), "textInputted":False, "givenText":""
+            })
+        elif request.POST.get("Sign Up"):
+            newUser = User.objects.create_user(username, "",password)
+            user=authenticate(request, username=username,password=password)
+            if user is not None:
+                login(request, user)
+                return render(request, "AdversarialTool/index.html", {
+                "form":NewForm(), "textInputted":False, "givenText":""
+            })
+        else:
+            return render(request, "AdversarialTool/login.html",{'message':"Invalid Login Information: Either sign up or review your login information"})
     return render(request, "AdversarialTool/login.html")
 
-def logout(request):
-    pass
+
+def logout_view(request):
+    logout(request)
+    return render(request, "AdversarialTool/login.html",{'message':"You have been logged out."})
+    
 
 def AttackClassification(attackDict, label):
     if attackDict["success"] and label==1:

@@ -1,15 +1,16 @@
 {% extends "AdversarialTool/layout.html" %}
 {% block body %}
-<div style="height: 340px;"></div>
+<div style="height: 340px;;"></div>
     {% if message %}
-        <div>{{ message }}</div>
+        <h3 style="text-align: center;">{{ message }}</h3>
     {% endif %}
 <div style="text-align: center;">
     <form action="{% url 'AdversarialTool:login' %}" method="post">
         {% csrf_token %}
         <input id="username" type="text", name="username", placeholder="Username"><br>
         <input type="password", name="password", placeholder="Password"><br>
-        <input type="submit", value="Login">
+        <input type="submit", name="Sign Up", value="Sign Up">
+        <input type="submit", name="Login", value="Login">
     </form>
 </div>
 {% endblock %}
