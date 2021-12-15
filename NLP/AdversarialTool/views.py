@@ -11,6 +11,7 @@ from django.forms import Textarea
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Attacks
 
 
 ATTACK_CHOICES= [
@@ -54,7 +55,7 @@ def index(request):
 
         return render(request, "AdversarialTool/index.html", {
         "form":NewForm(request.POST), "textInputted":textInputted, "givenText":attackOutputResults, "startingClassification":classifier,
-        "attackedClassification":attackOutputClasification, "attackSucess":attackSucess
+        "attackedClassification":attackOutputClasification, "attackSucess":attackSucess, "origText": givenText, "attackType":attackType
     })
     else:
         return render(request, "AdversarialTool/index.html", {
@@ -80,7 +81,7 @@ def emotions(request):
         attackOutputClasification=predictEmotions(attackOutputResults)[0]
         return render(request, "AdversarialTool/emotions.html", {
         "form":NewForm(request.POST), "givenText":givenText, "startingClassification":classifier[0], "textInputted":textInputted, "attackSucess":attackSucess
-        ,"OutputResults":attackOutputResults, "attackedClassification":attackOutputClasification
+        ,"OutputResults":attackOutputResults, "attackedClassification":attackOutputClasification, "attackType":attackType
     })
     else:
         return render(request, "AdversarialTool/emotions.html", {
@@ -110,7 +111,7 @@ def login_view(request):
                 "form":NewForm(), "textInputted":False, "givenText":""
             })
         elif request.POST.get("Sign Up"):
-            newUser = User.objects.create_user(username, "",password)
+            User.objects.create_user(username, "",password)
             user=authenticate(request, username=username,password=password)
             if user is not None:
                 login(request, user)
@@ -126,6 +127,16 @@ def logout_view(request):
     logout(request)
     return render(request, "AdversarialTool/login.html",{'message':"You have been logged out."})
     
+def savedAttacks(request):
+    if request.method=="POST":
+        attackOutput=request.POST.get("attack")
+        originalText=request.POST.get("origInput")
+        user=request.user
+        attackType=request.POST.get("attackType")
+
+        attack=Attacks(originalText=originalText, AttackedText=attackOutput, User=user, attackType=attackType)
+        attack.save()
+    return render(request, "AdversarialTool/savedAttacks.html", {"attacks":Attacks})
 
 def AttackClassification(attackDict, label):
     if attackDict["success"] and label==1:

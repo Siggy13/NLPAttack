@@ -17,6 +17,7 @@
 
             {% if request.user.is_authenticated %}
                 <a href="/AdversarialTool/logout" style="text-decoration: none">Logout</a>
+                <a href="/AdversarialTool/savedAttacks" style="text-decoration: none">Saved Attacks</a>
             {% else %}
                 <a href="/AdversarialTool/login" style="text-decoration: none">Login</a>
             {% endif %}
