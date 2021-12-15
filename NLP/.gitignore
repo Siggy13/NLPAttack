@@ -1,1 +1,4 @@
 data/
+../saveModel/pytorch_model.bin
+.DS_Store
+*.pyc
