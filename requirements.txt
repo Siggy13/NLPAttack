@@ -6,6 +6,7 @@ astor @ file:///home/conda/feedstock_root/build_artifacts/astor_1593610464257/wo
 astunparse @ file:///home/conda/feedstock_root/build_artifacts/astunparse_1610696312422/work
 async-timeout @ file:///home/conda/feedstock_root/build_artifacts/async-timeout_1637092647930/work
 attrs @ file:///home/conda/feedstock_root/build_artifacts/attrs_1620387926260/work
+backports.entry-points-selectable==1.1.1
 backports.zoneinfo==0.2.1
 blinker==1.4
 brotlipy @ file:///Users/runner/miniforge3/conda-bld/brotlipy_1636012310340/work
@@ -19,6 +20,7 @@ cryptography @ file:///Users/runner/miniforge3/conda-bld/cryptography_1637648808
 dataclasses @ file:///home/conda/feedstock_root/build_artifacts/dataclasses_1628958434797/work
 datasets==1.16.1
 dill==0.3.4
+distlib==0.3.4
 dj-database-url==0.5.0
 Django==4.0
 django-heroku==0.0.0
@@ -51,6 +53,8 @@ OpenAttack==2.1.1
 opt-einsum @ file:///home/conda/feedstock_root/build_artifacts/opt_einsum_1617859230218/work
 packaging==21.3
 pandas==1.3.4
+pipenv==2021.11.23
+platformdirs==2.4.0
 protobuf==3.15.8
 pyarrow==6.0.1
 pyasn1==0.4.8
@@ -85,6 +89,8 @@ tqdm==4.62.3
 transformers==4.12.5
 typing_extensions==4.0.1
 urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1632350318291/work
+virtualenv==20.10.0
+virtualenv-clone==0.5.7
 Werkzeug @ file:///home/conda/feedstock_root/build_artifacts/werkzeug_1621518206714/work
 whitenoise==5.3.0
 wrapt @ file:///Users/runner/miniforge3/conda-bld/wrapt_1624971795890/work
