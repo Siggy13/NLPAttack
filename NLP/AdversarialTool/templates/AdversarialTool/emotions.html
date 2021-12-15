@@ -4,7 +4,7 @@
 <div class="grid-container-element">
     
     <div class="grid-child-element input">
-    <h2>Enter text to see how it will be classified: </h2>
+    <h2>Enter text to see what emotion it might be classified: </h2>
         <form action="{% url 'AdversarialTool:emotions' %}" method="post">
             {% csrf_token %}
             {{form}}

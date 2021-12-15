@@ -10,8 +10,8 @@ urlpatterns=[
     path("github",views.FAQ, name="FAQ"),
     path("about",views.about, name="about"),
     path("aboutAttacks",views.aboutAttacks, name="aboutAttacks"),
-    path("login", views.login, name="login"),
-    path("logout", views.logout, name="logout")
+    path("login", views.login_view, name="login"),
+    path("logout", views.logout_view, name="logout")
 
     
 ]
