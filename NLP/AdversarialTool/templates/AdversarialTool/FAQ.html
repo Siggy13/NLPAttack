@@ -3,14 +3,47 @@
 
 <div style="height: 300px;"></div>
 <h3 style="padding:4em;">How do you use this software?</h3><b></b>
+<p class = "faq">This software is designed to be an easy-to-understand tool for performing adversarial attacks on natural language processing model.
+                Choose what type of classification you want to try by choosing "Emotion Based Tool" or "Stress Based Tool"
+                on the top of the page. Then, enter some text you want to be altered. Select the type of attack you want to use,
+                then click "Check Classification". The model may take a few seconds to process, but then you will see your output
+                appear on the right side of the screen.
+    
+</p>
 
 <h3 style="padding:4em;"> How does an adversarial attack work?</h3><b></b>
+<p class = "faq"> Adversarial attacks work by applying an algorithm to slightly alter the input. Then, the altered text is 
+    given to the classifier. If the classification of the altered text is different than the input, the attack is a success!
+    Different attackers use different algorithms to alter the text. Visit the <a href="/AdversarialTool/aboutAttacks" style = "padding:0;">"About the Attacks"</a> page to learn more.
+
+</p>
 
 <h3 style="padding:4em;"> What are the uses for this software?</h3><b></b>
 
+<p class = "faq"> Natural language processing models, especially ones focused on mental health, are becoming increasingly common
+    in the world. Because many of these models are proprietary, it is difficult to determine how helpful they really are. Adversarial
+    models give us a good means from an outsider's perspective to easily demonstrate that these models do not provide the benefit
+    the companies that sell them claim they do because of the relative ease through which they can be made to misclassify inputs.
+    While we do not have access to a real-world model, we use state-of-the-art technology to build highly sophisticated classifiers
+    to attack.
+</p>
+
 <h3 style="padding:4em;"> What are some good resurces to learn more?</h3><b></b>
 
+<p class = "faq"> To learn more about how we incorporate the adversarial attacks, visit the 
+    <a href="https://openattack.readthedocs.io/en/latest/" style="padding:0" target="_blank">OpenAttack documentation</a>. 
+    Follow these links to learn more about our
+    <a href="https://aclanthology.org/D19-6213/" style="padding:0" target="_blank">stress-based</a>  and 
+    <a href="https://huggingface.co/bhadresh-savani/distilbert-base-uncased-emotion" style="padding:0" target="_blank">emotion-based</a> 
+    classifiers. Here's a helpful
+    <a href="https://viso.ai/deep-learning/adversarial-machine-learning/" style="padding:0" target="_blank">article</a> that describes
+    adversarial machine learning more broadly.  Read this 
+    <a href="https://www.theguardian.com/education/2021/oct/12/school-surveillance-dragnet-suicide-attempt-healing" style="padding:0" target="_blank">article</a> to learn about a real-world example of why it is important to 
+    critically examine the machine learning models that are becoming more and more common in society. 
 
+</p>
+
+<div style="height: 50px;"></div>
 {% endblock %} 
 
 

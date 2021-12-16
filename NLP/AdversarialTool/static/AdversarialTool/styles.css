@@ -78,6 +78,8 @@ a {
 	padding: 3rem 0 0 3rem;
 }
 
+
+
 input[type=submit] {
     padding:5px 15px; 
     margin: 10px 13px;
@@ -194,4 +196,13 @@ textarea{
 .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #A0ACBD;
+
+p.faq {
+	padding: 2em;
+	padding-top: 0;
+	padding-bottom: 0;
+	color: white;
+	font-size: 18px;
+	line-height: 1.6;
+	
 }
