@@ -64,6 +64,7 @@ def index(request):
 
 def emotions(request):
     if request.method == "POST":
+        render(request, "AdversarialTool/loading.html")
         givenText = request.POST.get("inputText")
         attackType= request.POST.get("chosenAttack")
 
@@ -98,6 +99,9 @@ def about(request):
 
 def aboutAttacks(request):
     return render(request, "AdversarialTool/aboutAttacks.html")
+
+def loading(request):
+    return render(request, "AdversarialTool/loading.html")
 
 def login_view(request):
     if request.method == "POST":
@@ -140,18 +144,19 @@ def savedAttacks(request):
         originalClassification=originalClassification, newClassification=newClassification)
         attack.save()
 
-        userAttacks=Attacks.objects.filter(User=request.user).values()
-        listOfAttacks=[]
+    userAttacks=Attacks.objects.filter(User=request.user).values()
+    listOfAttacks=[]
+    eachAttack=[]
+    for dictionary in userAttacks:
+        eachAttack.append(dictionary["originalText"])
+        eachAttack.append(dictionary["originalClassification"])
+        eachAttack.append(dictionary["attackType"])
+        eachAttack.append(dictionary["AttackedText"])
+        eachAttack.append(dictionary["newClassification"])
+        listOfAttacks.append(eachAttack)
         eachAttack=[]
-        for dictionary in userAttacks:
-            eachAttack.append(dictionary["originalText"])
-            eachAttack.append(dictionary["originalClassification"])
-            eachAttack.append(dictionary["attackType"])
-            eachAttack.append(dictionary["AttackedText"])
-            eachAttack.append(dictionary["newClassification"])
-            listOfAttacks.append(eachAttack)
-            eachAttack=[]
     return render(request, "AdversarialTool/savedAttacks.html", {"attacks":listOfAttacks})
+
 
 def AttackClassification(attackDict, label):
     if attackDict["success"] and label==1:
