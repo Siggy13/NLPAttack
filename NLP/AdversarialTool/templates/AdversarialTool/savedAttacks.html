@@ -1,8 +1,23 @@
 {% extends "AdversarialTool/layout.html" %}
 {% block body %}
 <div style="height: 300px"></div>
-    {% for attacks in Attacks %}
-        <h2>{{attack}}</h2>
-
+<table>
+    <tr>
+      <th>Original Text</th>
+      <th>Original Classification</th>
+      <th>Attack Type</th>
+      <th>Attacked Output</th>
+      <th>Attacked Classification</th>
+    </tr>
+    {% for attack in userAttacks %}
+    <tr>
+        <td>attack.originalText</td>
+        <td>attack.originalClassification</td>
+        <td>attack.attackType</td>
+        <td>attack.AttackedText</td>
+        <td>attack.newClassification</td>
+    </tr>
     {% endfor %}
+  </table>
+        
 {% endblock %}
