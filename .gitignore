@@ -1,0 +1,6 @@
+*.pyc
+.DS_Store
+/NLP/Data/
+/NLP/AdversarialTool/__pycache__/
+/NLP/NLP/__pycache__/
+/NLP/AdversarialTool/migrations/__pycache__/
