@@ -140,11 +140,18 @@ def savedAttacks(request):
         originalClassification=originalClassification, newClassification=newClassification)
         attack.save()
 
-        # userAttacks=Attacks.objects.filter(User=request.user).order_by('id')
-
-        # for use in userAttacks:
-        #     print(use.get_field('User'))
-    return render(request, "AdversarialTool/savedAttacks.html", {"attacks":userAttacks})
+        userAttacks=Attacks.objects.filter(User=request.user).values()
+        listOfAttacks=[]
+        eachAttack=[]
+        for dictionary in userAttacks:
+            eachAttack.append(dictionary["originalText"])
+            eachAttack.append(dictionary["originalClassification"])
+            eachAttack.append(dictionary["attackType"])
+            eachAttack.append(dictionary["AttackedText"])
+            eachAttack.append(dictionary["newClassification"])
+            listOfAttacks.append(eachAttack)
+            eachAttack=[]
+    return render(request, "AdversarialTool/savedAttacks.html", {"attacks":listOfAttacks})
 
 def AttackClassification(attackDict, label):
     if attackDict["success"] and label==1:
