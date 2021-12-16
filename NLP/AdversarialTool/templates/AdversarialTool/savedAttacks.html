@@ -1,7 +1,8 @@
 {% extends "AdversarialTool/layout.html" %}
 {% block body %}
 <div style="height: 300px"></div>
-<table>
+<table class="styled-table">
+    <thead>
     <tr>
       <th>Original Text</th>
       <th>Original Classification</th>
@@ -9,15 +10,18 @@
       <th>Attacked Output</th>
       <th>Attacked Classification</th>
     </tr>
-    {% for attack in userAttacks %}
-    <tr>
-        <td>attack.originalText</td>
-        <td>attack.originalClassification</td>
-        <td>attack.attackType</td>
-        <td>attack.AttackedText</td>
-        <td>attack.newClassification</td>
+</thead>
+    <tbody>
+    {% for attack in attacks %}
+    <tr class="active-row">
+        <td>{{attack.0}}</td>
+        <td>{{attack.1}}</td>
+        <td>{{attack.2}}</td>
+        <td>{{attack.3}}</td>
+        <td>{{attack.4}}</td>
     </tr>
+</tbody>
     {% endfor %}
   </table>
-        
+
 {% endblock %}
