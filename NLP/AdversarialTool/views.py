@@ -21,6 +21,7 @@ ATTACK_CHOICES= [
     ('Genetic', 'Genetic'),
     ('SememePSO', 'SememePSO'),
     ('FD', 'FD'),
+    ('Viper', 'Viper')
     ]
 
 class NewForm(forms.Form):
