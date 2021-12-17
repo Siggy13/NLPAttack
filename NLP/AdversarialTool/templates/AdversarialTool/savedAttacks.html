@@ -9,6 +9,7 @@
       <th>Attack Type</th>
       <th>Attacked Output</th>
       <th>Attacked Classification</th>
+      <th>Delete Attack</th>
     </tr>
 </thead>
     <tbody>
@@ -19,6 +20,10 @@
         <td>{{attack.2}}</td>
         <td>{{attack.3}}</td>
         <td>{{attack.4}}</td>
+        <td>
+          <a href="{% url 'AdversarialTool:delete_attack' attack.5 %}" style="text-decoration: none; color:#A0ACBD;">Delete</a>
+        </form>
+        </td>
     </tr>
 </tbody>
     {% endfor %}

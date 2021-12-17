@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse
 import numpy as np
 from django.http import HttpResponse, HttpResponseRedirect
 from django import forms
@@ -65,7 +65,6 @@ def index(request):
 
 def emotions(request):
     if request.method == "POST":
-        render(request, "AdversarialTool/loading.html")
         givenText = request.POST.get("inputText")
         attackType= request.POST.get("chosenAttack")
 
@@ -101,8 +100,10 @@ def about(request):
 def aboutAttacks(request):
     return render(request, "AdversarialTool/aboutAttacks.html")
 
-def loading(request):
-    return render(request, "AdversarialTool/loading.html")
+def delete_attack(request, attack_id):
+    attack=Attacks.objects.get(pk=attack_id)
+    attack.delete()
+    return redirect('/AdversarialTool/savedAttacks')
 
 def login_view(request):
     if request.method == "POST":
@@ -154,6 +155,7 @@ def savedAttacks(request):
         eachAttack.append(dictionary["attackType"])
         eachAttack.append(dictionary["AttackedText"])
         eachAttack.append(dictionary["newClassification"])
+        eachAttack.append(dictionary["id"])
         listOfAttacks.append(eachAttack)
         eachAttack=[]
     return render(request, "AdversarialTool/savedAttacks.html", {"attacks":listOfAttacks})
