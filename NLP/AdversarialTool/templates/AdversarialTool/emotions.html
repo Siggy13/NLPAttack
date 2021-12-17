@@ -27,6 +27,7 @@
             {% endif %}
 
             {% if request.user.is_authenticated %}
+                {% if attackSucess %}
             <form action="{% url 'AdversarialTool:savedAttacks' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden", name="attack", value="{{OutputResults}}">
@@ -36,6 +37,7 @@
                 <input type="hidden", name="newClassification", value="{{attackedClassification}}">
                 <input type="submit", name="Save", value="Save this Attack">
             </form> 
+                {% endif %}
             {% endif %}
     {% endif %}
     </div>
