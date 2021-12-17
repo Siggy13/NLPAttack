@@ -15,7 +15,7 @@ from .models import Attacks
 
 
 ATTACK_CHOICES= [
-    ("Choose an attack: ","Choose an attack: " ),
+    ("BERT-ATTACK","Choose an attack: " ),
     ('BERT-ATTACK', 'BERT-ATTACK(Default)'),
     ('PWWS','PWWS'),
     ('Genetic', 'Genetic'),
