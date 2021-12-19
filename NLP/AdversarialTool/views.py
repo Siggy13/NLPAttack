@@ -109,6 +109,8 @@ def login_view(request):
     if request.method == "POST":
         username=request.POST["username"]
         password=request.POST["password"]
+        if username=="" or password=="":
+            return render(request, "AdversarialTool/login.html",{'message':"Invalid Information: Please fill in both the username and password feilds"})
         if request.POST.get("Login"):
             user=authenticate(request, username=username,password=password)
             if user is not None:
