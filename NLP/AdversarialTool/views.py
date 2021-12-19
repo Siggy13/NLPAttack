@@ -116,7 +116,11 @@ def login_view(request):
                 return render(request, "AdversarialTool/index.html", {
                 "form":NewForm(), "textInputted":False, "givenText":""
             })
+            else:
+                return render(request, "AdversarialTool/login.html",{'message':"Invalid Login Information: Please check your username and password"})
         elif request.POST.get("Sign Up"):
+            if User.objects.filter(username=username).exists():
+                return render(request, "AdversarialTool/login.html",{'message':"This username already exisits, please choose a new one."})
             User.objects.create_user(username, "",password)
             user=authenticate(request, username=username,password=password)
             if user is not None:
@@ -124,8 +128,7 @@ def login_view(request):
                 return render(request, "AdversarialTool/index.html", {
                 "form":NewForm(), "textInputted":False, "givenText":""
             })
-        else:
-            return render(request, "AdversarialTool/login.html",{'message':"Invalid Login Information: Either sign up or review your login information"})
+
     return render(request, "AdversarialTool/login.html")
 
 
