@@ -4,6 +4,7 @@
     {% if message %}
         <h3 style="text-align: center;">{{ message }}</h3>
     {% endif %}
+    <h3 style="text-align: center;">Login or Sign up to save attacks</h3>
 <div style="text-align: center;">
     <form action="{% url 'AdversarialTool:login' %}" method="post">
         {% csrf_token %}
