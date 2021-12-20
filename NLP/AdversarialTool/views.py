@@ -53,10 +53,12 @@ def index(request):
             attackOutputResults=attackOutput["result"]
         else:
             attackOutputResults=givenText
-
+        bold = lambda x: f'<b>{x}</b>'
+        parsedlist=highlight_shared(givenText, attackOutputResults, bold)
         return render(request, "AdversarialTool/index.html", {
         "form":NewForm(request.POST), "textInputted":textInputted, "givenText":attackOutputResults, "startingClassification":classifier,
-        "attackedClassification":attackOutputClasification, "attackSucess":attackSucess, "origText": givenText, "attackType":attackType
+        "attackedClassification":attackOutputClasification, "attackSucess":attackSucess, "origText": givenText, "attackType":attackType,
+        "mylist":parsedlist
     })
     else:
         return render(request, "AdversarialTool/index.html", {
@@ -80,9 +82,11 @@ def emotions(request):
             attackOutputResults=givenText
 
         attackOutputClasification=predictEmotions(attackOutputResults)[0]
+        bold = lambda x: f'<b>{x}</b>'
+        parsedlist=highlight_shared(givenText, attackOutputResults, bold)
         return render(request, "AdversarialTool/emotions.html", {
         "form":NewForm(request.POST), "givenText":givenText, "startingClassification":classifier[0], "textInputted":textInputted, "attackSucess":attackSucess
-        ,"OutputResults":attackOutputResults, "attackedClassification":attackOutputClasification, "attackType":attackType
+        ,"OutputResults":attackOutputResults, "attackedClassification":attackOutputClasification, "attackType":attackType, "mylist":parsedlist
     })
     else:
         return render(request, "AdversarialTool/emotions.html", {
@@ -180,3 +184,25 @@ def isAttackSucessful(attackDict):
         return True
     else: 
         return False
+# def parseOutput(origList, newList):
+#     splitOrig=origList.split()
+#     splitNew=newList.split()
+#     parsedList=[]
+#     if splitNew[0]==splitOrig[0]:
+#         parsedList.append("")
+#     sameWords=""
+#     for i in range(len(origList)):
+#         if i==(len(origList)-1):
+#             parsedList.append(sameWords)
+#             break
+#         if origList[i]!=newList[i]:
+#             parsedList.append(sameWords)
+#             parsedList.append(newList[i])
+#             sameWords=""
+#         else:
+#             sameWords=sameWords+newList[i]
+
+#         return parsedList
+def highlight_shared(string2, string1, format_func):
+    shared_toks = set(string1.split(' ')) & set(string2.split(' '))
+    return ' '.join([format_func(tok) if tok not in shared_toks else tok for tok in string1.split(' ') ])

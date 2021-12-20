@@ -18,10 +18,13 @@
             {% if attackSucess %}
             <h2 style="padding: 7.5rem 0 0 1.5rem;">This attack was SUCCESSFUL! </h2>
             {% else %}
-            <h2 style="padding: 7.5rem 0 0 1.5rem;">This attack was NOT Sucessful </h2>
+            <h2 style="padding: 7.5rem 0 0 1.5rem;">This attack was NOT Sucessful</h2>
             {% endif %}
             <h3>The given text is originaly classified as {{startingClassification}} </h3>
-            <div contenteditable="true" class="textDiv">{{OutputResults}}</div>
+            
+            <div contenteditable="true" class="textDiv">
+                {{mylist |safe}}
+            </div>
             {% if attackSucess %}
             <h3>This slightly altered text is classified as {{attackedClassification}} </h3>
             {% endif %}
