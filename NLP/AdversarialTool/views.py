@@ -184,25 +184,7 @@ def isAttackSucessful(attackDict):
         return True
     else: 
         return False
-# def parseOutput(origList, newList):
-#     splitOrig=origList.split()
-#     splitNew=newList.split()
-#     parsedList=[]
-#     if splitNew[0]==splitOrig[0]:
-#         parsedList.append("")
-#     sameWords=""
-#     for i in range(len(origList)):
-#         if i==(len(origList)-1):
-#             parsedList.append(sameWords)
-#             break
-#         if origList[i]!=newList[i]:
-#             parsedList.append(sameWords)
-#             parsedList.append(newList[i])
-#             sameWords=""
-#         else:
-#             sameWords=sameWords+newList[i]
 
-#         return parsedList
 def highlight_shared(string2, string1, format_func):
     shared_toks = set(string1.split(' ')) & set(string2.split(' '))
     return ' '.join([format_func(tok) if tok not in shared_toks else tok for tok in string1.split(' ') ])

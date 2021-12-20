@@ -3,7 +3,7 @@
 	font-size: 10px;
 
 	/* Heading height variable*/
-	--heading-height: 30em;
+	--heading-height: 25em;
 }
 .grid-container-element { 
     display: grid; 
@@ -13,7 +13,10 @@
 } 
 .grid-child-element { 
     margin: 10px; 
-    text-align: center;
+	text-align: center;
+	margin-left: auto; 
+	margin-right: auto;
+	
 }
 body {
 	font-family: "Roboto", Arial, sans-serif;
@@ -37,7 +40,7 @@ header::before {
 	width: 100%;
 	height: calc(var(--heading-height) + 10em);
 	z-index: -1;
-	transform: skewY(-3.5deg);
+	transform: skewY(-2.5deg);
 	background: 
 		linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
 		linear-gradient(#4e4376, #2b5876);
@@ -49,7 +52,7 @@ h1 {
 	font-size: calc(2.6em + 2.4vw);
 	font-weight: 700;
 	letter-spacing: .01em;
-	padding: 10rem 0 0 4.5rem;
+	padding: 1rem 0 0 4.5rem;
 	text-shadow: .022em .022em .022em #111;
 	color: #fff;
 }
