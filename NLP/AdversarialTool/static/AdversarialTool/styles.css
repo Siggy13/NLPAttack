@@ -71,6 +71,14 @@ h3 {
 	text-shadow: .022em .022em .022em #111;
     color: #fff; 
 }
+h4{
+	font-size: calc(1em + 1vw);
+	font-weight: 700;
+	letter-spacing: .01em;
+	text-shadow: .022em .022em .022em #111;
+	padding: 1rem 0 0 4.5rem;
+    color: #A0ACBD; 	
+}
 
 h3.faq{
 	padding:1em;
@@ -229,4 +237,14 @@ p.faq {
 	overflow-y:auto;
 	text-indent: 0px;
 	font-size: 13.5px;
+}
+
+img{
+	width:80%;
+	height:80%;
+	border: 5px solid  #A0ACBD;
+	display: block;
+	margin: auto;
+	border-radius: 5px; 
+	padding: 2em;
 }
