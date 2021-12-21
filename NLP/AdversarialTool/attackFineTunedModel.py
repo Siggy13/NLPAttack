@@ -13,7 +13,7 @@ AttackDict={
     'PWWS':OpenAttack.attackers.PWWSAttacker(),
     'Genetic':OpenAttack.attackers.GeneticAttacker(),
     'SememePSO':OpenAttack.attackers.PSOAttacker(),
-    'Viper': OpenAttack.attackers.VIPERAttacker(),
+    'Viper': OpenAttack.attackers.VIPERAttacker(method = 'dces'),
     }
 
 

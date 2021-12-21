@@ -27,16 +27,39 @@
 <h3 class = 'faq'>Genetic [<a href="https://arxiv.org/abs/1804.07998" style="padding:0" target="_blank">paper</a>]
     [<a href="https://github.com/nesl/nlp_adversarial_examples" style="padding:0" target="_blank">code</a>]</h3>
 
+<p class = 'faq'>
+    Genetic algorithms are inspired by the process of natural selection, iteratively evolving a population of 
+    candidate solutions towards better solutions. This attack ranks each word by context in the sentence
+    and generates synonyms for each. Then, the algorithm will produce a set of different outputs. If one of them changes 
+    the classification, the attack is complete. If not, a new <i>child</i> sentence is synthesized from sampling two of the 
+    now <i>parent</i> sentences with a <i>fitness</i> function. This process repeats until the attack succeeds. While genetic algorithms perform well 
+    in maintaining semantic consistency, they can be computationally expensive with more complex sentences.
+</p>
+
 <h3 class = 'faq'>SememePSO [<a href="https://arxiv.org/abs/1910.12196" style="padding:0" target="_blank">paper</a>]
     [<a href="https://github.com/thunlp/SememePSO-Attack" style="padding:0" target="_blank">code</a>]</h3>
 
-<h3 class = 'faq'>FD [<a href="https://arxiv.org/pdf/1604.08275.pdf" style="padding:0" target="_blank">paper</a>]
-    </h3>
+<p class = 'faq'>
+    In linguistics, a sememe is defined as the minimum semantic unit of human languages. PSO stands for particle swarm 
+    optimization, in which particles in n-dimensional space move towards optimal positions based on the positions all the 
+    other particles find, inspired by the movement of a flock of birds or a school of fish. For this attack, a position is
+    a possible output sentence and each dimension is a word in the input sentence. The algorithm substitutes words 
+    based on their sememes, iteratively making substitutions until a swarm of particles finds a position that changes 
+    the classification. Using sememes instead of synonyms creates a wider possible range of adversarial examples, but PSO 
+    algorithms can suffer from falling into local optimums and having low convergence rates.
+</p>
 
-<h3 class = 'faq'>Viper [<a href="https://arxiv.org/pdf/1903.11508v1.pdf" style="padding:0" target="_blank">paper</a>]
+
+<h3 class = 'faq'>VIPER [<a href="https://arxiv.org/pdf/1903.11508v1.pdf" style="padding:0" target="_blank">paper</a>]
     [<a href="https://github.com/UKPLab/naacl2019-like-humans-visual-attacks" style="padding:0" target="_blank">code</a>]</h3>
 
+<p class = 'faq'>
+    VIPER is a visual perturber that randomly replaces characters in the input with visually similar characters. For example,
+    feeding the sentence "I think this sentence might look weird." through VIPER results in "I thiňk ẗhis sênteňce mîghẗ ᶅook ẘêird."
+    The classification changes from "fear" to "surprise". Visually, humans can ignore the altered characters and read the sentence
+    essentially unchanged. However, this attack is less practical in most writing contexts.
 
+</p>
 
     <div style="height: 50px;"></div>
 
