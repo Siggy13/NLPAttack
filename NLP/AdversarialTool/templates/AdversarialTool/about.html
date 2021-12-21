@@ -1,26 +1,23 @@
 {% extends "AdversarialTool/layout.html" %}
 {% block body %}
-<div style="height: 300px;"></div>
+<div style="height: 200px;"></div>
 <h1 style="padding-top: .2em">About the Project</h1>
 <p class = "faq">
 The usage of machine learning to monitor student online activity is a rapidly growing industry. 
-While there is growing scrutiny of the companies that sell school machine learning services, there is limited technical examination
+While there is increasing scrutiny of the companies that sell school machine learning services, there is limited technical examination
  of the algorithms themselves because of the companies’ lack of transparency. The field of adversarial machine learning on natural 
- language processing (NLP) models is becoming a useful way to discover vulnerabilities in these models. Our project develops a tool 
- that uses an adversarial model to transform text into an output that can mislead an NLP algorithm fine-tuned towards detecting 
+ language processing (NLP) models is becoming a useful way to discover vulnerabilities in these models. MisclassifyMe develops a tool 
+ that uses an adversarial model to transform input text into an output that can mislead an NLP algorithm fine-tuned towards detecting 
  mental health issues in order to approximate the kinds of models being used in schools. We use two fine-tuned implementations of 
- BERT as our classifiers and then employ a variety of adversarial attacks from the OpenAttack API to generate altered outputs. 
- Because most user-friendly demos of adversarial machine learning are focused on image classification, we make a unique contribution 
- to this growing field by focusing on text classification in the specific context of mental health and emotion. <br>
+ BERT as our classifiers and then employ a variety of adversarial attacks from the <a href='https://openattack.readthedocs.io/en/latest/apis/attacker.html'
+ style="padding:0">OpenAttack API</a> to generate altered outputs. The stress
+ related model is a DistilBERT model from the <a href="https://huggingface.co/docs/transformers/model_doc/distilbert" style="padding:0">
+Transformers library</a> fine-tuned on a <a href="https://arxiv.org/pdf/1911.00133.pdf" style="padding:0">dataset</a> that 
+classifies the how stressed a piece of text sounds. The second model is a 
+<a href=https://huggingface.co/bhadresh-savani/distilbert-base-uncased-emotion style="padding:0">pretrained
+ DistilBERT model</a> from the Transformers library that classifies what emotion a piece of text emenates.
+  <br>
 
- Natural language processing is becoming an increasingly common tool used by schools to monitor student communications for safety 
- concerns. Companies including Gaggle, GoGuardian, Securly, and Bark, which specialize in school machine learning technology, have 
- experienced rapid growth over the past few years. However, these companies lack transparency as to how their machine learning 
- algorithms operate, creating the risk for a variety of unintended consequences while leaving communities unable to establish any 
- form of accountability. Our system implements an easy-to-use interface to demonstrate the relative ease through which natural 
- language processing models fine-tuned on mental health issues can be made to misclassify inputs. Most user-friendly demonstrations
-  of adversarial models are focused on image classification, so our system provides a unique contribution to give non-technical 
-  users improved insights into the vulnerabilities of the algorithms watching over millions of students nationwide.
 
 </p>
 <div style="height: 50px;"></div>
