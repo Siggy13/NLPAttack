@@ -39,20 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_quill',
 ]
-QUILL_CONFIGS = {
-    'default':{
-        'theme': 'bubble',
-        'modules': {
-            'syntax': True,
-            'toolbar': [
-                [
-                ],
-            ]
-        }
-    }
-}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -138,6 +126,4 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
 
