@@ -4,3 +4,7 @@
 /NLP/AdversarialTool/__pycache__/
 /NLP/NLP/__pycache__/
 /NLP/AdversarialTool/migrations/__pycache__/
+oa_demo2.py
+NLP/imdbBert.py
+NLP/ml_test.py
+NLP/openattack_demo.py
