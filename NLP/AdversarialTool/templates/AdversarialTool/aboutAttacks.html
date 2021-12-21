@@ -6,8 +6,23 @@
 <h3 class = 'faq'>BERT-Attack [<a href="https://arxiv.org/abs/2004.09984" style="padding:0" target="_blank">paper</a>]
     [<a href="https://github.com/LinyangLee/BERT-Attack" style="padding:0" target="_blank">code</a>] </h3>
 
+<p class = 'faq'>
+    BERT-Attack is a greedy contextualized word substitution model. This attack contains two steps. First, the model ranks the words
+    of the input in order of importance in determining the input's original label. Second, the model uses BERT to formulate
+    replacements, which is advantageous for helping preserve fluency, grammar, and semantic consistency because BERT can view
+    words in context. However, this attack can sometimes produce outputs with antonyms or with words irrelevant to the input,
+    causing a semantic loss.
+</p>
+
 <h3 class = 'faq'>PWWS [<a href="https://aclanthology.org/P19-1103/" style="padding:0" target="_blank">paper</a>]
     [<a href="https://github.com/JHL-HUST/PWWS" style="padding:0" target="_blank">code</a>]</h3>
+
+<p class = 'faq'>
+    PWWS stands for Probability Weighted Word Saliency. This attack works by generating synonyms for each word in the input. Then,
+    the model uses a word saliency algorithm to determine the order of word replacement by calculating which individual changes
+    cause the greatest probability change in classification. PWWS has a low word substitution rate, helping maintain semantic consistency,
+    but it does not use context when making substitutions.
+</p>
 
 <h3 class = 'faq'>Genetic [<a href="https://arxiv.org/abs/1804.07998" style="padding:0" target="_blank">paper</a>]
     [<a href="https://github.com/nesl/nlp_adversarial_examples" style="padding:0" target="_blank">code</a>]</h3>
