@@ -1,9 +1,11 @@
+"""
+Define the prediction methods to be used when displaying the outputs on the webpage
+"""
 from transformers import pipeline, AutoTokenizer, AutoModel, DistilBertTokenizerFast, logging
 import os
 import torch
 
 logging.set_verbosity_error()
-
 
 def predictSentiment(text):
     sentiment_analysis = pipeline("sentiment-analysis")

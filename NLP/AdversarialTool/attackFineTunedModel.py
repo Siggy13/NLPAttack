@@ -1,3 +1,6 @@
+"""
+Builds the attack for the fine-tuned stress classification model
+"""
 import OpenAttack
 import transformers
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, DistilBertTokenizerFast
@@ -6,6 +9,8 @@ import torch
 import datasets
 from datasets import load_metric
 import csv
+
+
 
 AttackDict={
     "Choose an attack: ":OpenAttack.attackers.BERTAttacker(),
@@ -18,6 +23,9 @@ AttackDict={
 
 
 def getAttackOutput(text, label, attack):
+    """
+    Returns the result of an attack using OpenAttack's ieval method
+    """
     dataToAttack= datasets.Dataset.from_dict({
     "x": [
         text
@@ -27,7 +35,7 @@ def getAttackOutput(text, label, attack):
     ]
 })
     attacker = AttackDict[attack]
-
+    #Metrics available for testing--only the text output, classification, and success are displayed on the web page
     attack_eval = OpenAttack.AttackEval(attacker, victim, metrics = [
     OpenAttack.metric.EditDistance(),
     OpenAttack.metric.ModificationRate()
