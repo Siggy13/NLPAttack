@@ -1,3 +1,6 @@
+"""
+Builds the attack for the pre-trained emotion classification model
+"""
 import OpenAttack
 import transformers
 from transformers import AutoTokenizer, AutoModel, DistilBertTokenizerFast, DistilBertTokenizer, pipeline, AutoModelForSequenceClassification
@@ -8,6 +11,9 @@ from datasets import load_metric
 import csv
 from datasets import load_dataset
 
+
+
+#Dictionary of attacks to choose from
 AttackDict={
     "Choose an attack: ":OpenAttack.attackers.BERTAttacker(),
     'BERT-ATTACK':OpenAttack.attackers.BERTAttacker(),
@@ -17,7 +23,11 @@ AttackDict={
     'Viper': OpenAttack.attackers.VIPERAttacker(),
     }
 
+
 def getEmotionAttackOutput(text, attack):
+    """
+    Returns the result of an attack using OpenAttack's ieval method
+    """
     dataToAttack= datasets.Dataset.from_dict({
     "x": [
         text
@@ -25,6 +35,7 @@ def getEmotionAttackOutput(text, attack):
     })
     attacker = AttackDict[attack]
 
+    #Metrics available for testing--only the text output, classification, and success are displayed on the web page
     attack_eval = OpenAttack.AttackEval(attacker, victim, metrics = [
     OpenAttack.metric.EditDistance(),
     OpenAttack.metric.ModificationRate()
