@@ -1,3 +1,8 @@
+'''
+This is the file that creates and saves the fine-tuned Distilbert model on the 'dreaddit-train.csv' dataset.
+Run this file as is to recreate the model. The model will be made in the 'saveModel' directory.
+More information about the model can be found in the description.txt file in the saveModel directory.
+'''
 import csv 
 from transformers import DistilBertTokenizerFast, BertTokenizer, AdamW, DistilBertForSequenceClassification
 from sklearn.model_selection import train_test_split
@@ -9,7 +14,6 @@ from sklearn.model_selection import KFold
 import pandas as pd
 import os
 
-print("Testing LSF changes")
 
 os.makedirs("saveModel")
 

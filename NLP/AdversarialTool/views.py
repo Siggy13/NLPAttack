@@ -1,3 +1,8 @@
+'''
+File that takes care of all http requests and responses. Every HTML template is rendered through this file.
+Makes the project useable through calling methods to add functionality.
+
+'''
 from django.shortcuts import render, redirect, reverse
 import numpy as np
 from django.http import HttpResponse, HttpResponseRedirect
@@ -28,7 +33,7 @@ class NewForm(forms.Form):
     chosenAttack= forms.CharField(label=mark_safe('<br />'), widget=forms.Select(choices=ATTACK_CHOICES))
 
 
-
+'''Renders page that performs stress-based classification and adversarial attack'''
 def index(request):
     
     if request.method == "POST":
@@ -64,6 +69,7 @@ def index(request):
             "form":NewForm(), "textInputted":False, "givenText":""
         })
 
+'''Renders page that performs emotion-based classification and adversarial attack'''
 def emotions(request):
     if request.method == "POST":
         givenText = request.POST.get("inputText")
