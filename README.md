@@ -23,7 +23,7 @@ command `python3 manage.py runserver`. Finally, and go to the address 'http://12
 page for the software should appear. 
 
 
-## How to Use the website
+## How to Use the Website
 Once you are on the webpage the first screen you see will is our stress-based tool for demonstrating adversarial attacks. 
 You can type text into the textbox on the homepage and click the 'Classify and Attack' button. The text will be classified as 'Stressed' or 'Not Stressed"
 and an altered text will be provided;if the attack succeeds, the new text will be classified differently than the original text, and it will ideally have a 
